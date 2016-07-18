@@ -2,9 +2,9 @@ require 'open-uri'
 require 'pry' #having a had time making binding.pry work.
 require 'nokogiri'
 
-class Scraper
+class Pottermore::Scraper
 
-  attr_accessor :url
+  attr_accessor
 
   def initalize
     @ebooks = ebooks
@@ -17,17 +17,22 @@ class Scraper
 
   def self.ebooks
    doc = Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/ebooks/us-english"))
-   book = doc.css("div.product-summary__title").text do |book|
-    book_one = book[1]
-    book_two = book[2]
-    puts book_two
-    binding.pry
+   book_one = doc.css("div.product-summary__title")[1].text
+   book_two = doc.css("div.product-summary__title")[2].text
+   book_three = doc.css("div.product-summary__title")[3].text
+   book_four = doc.css("div.product-summary__title")[4].text
+   book_five = doc.css("div.product-summary__title")[5].text
+   book_six = doc.css("div.product-summary__title")[6].text
+   book_seven = doc.css("div.product-summary__title")[7].text
+     doc.css("div.product-summary__title").text.each_with_index do |index, book|
+       book
 
-   #should have used iteration^^
-    book_collection = doc.css("div.product-summary__title")[0].text
+
+   #should have used iteration
+   book_collection = doc.css("div.product-summary__title")[0].text
    # I also want to add price
-  # @@list << self.ebooks
-  # @@list
+  #
+    binding.pry
    end
   end
 
@@ -43,8 +48,8 @@ class Scraper
 
    #
    audiobook_collection = doc.css("div.product-summary__title")[0].text
-   binding.pry
-  end
+   #binding.pry
+   end
 
   def self.news
 
