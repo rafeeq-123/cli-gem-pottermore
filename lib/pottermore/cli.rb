@@ -1,8 +1,11 @@
+require 'pry'
 class Pottermore::CLI
 
   def call
     puts "Welcome to Pottermore!"
     start_menu
+    @ebooks = Scraper::CLI.ebooks
+    @audiobooks = Scraper::CLI.audiobooks
   end
 
   def start_menu
@@ -19,8 +22,8 @@ class Pottermore::CLI
         puts "Here is the lastest Potter related news!"
       when "4"
         puts "Here are the upcoming events in the world of Harry Potter!"
-     # when "5..9"
-        #puts "something funny from Harry Potter" #I need to think of something to put there
+      else
+        puts "I open at the close..." #I need to think of something to put there
       end
     end
   end
