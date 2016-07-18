@@ -1,11 +1,22 @@
 require 'pry'
+require 'open-uri' #having a had time making binding.pry work.
+require 'nokogiri'
+
 class Pottermore::CLI
 
   def call
     puts "Welcome to Pottermore!"
     start_menu
-    @ebooks = ebooks
-    @audiobooks = audiobooks
+    ebooks
+  end
+
+   def self.ebooks
+   doc = Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/ebooks/us-english"))
+   @ebooks = doc.css("div.product-summary__title").text
+   @ebc = doc.css("div.product-summary__title")[0].text
+   @@list << self.ebooks
+   @@list
+   binding.pry
   end
 
   def start_menu
@@ -16,12 +27,14 @@ class Pottermore::CLI
       case input
       when "1"
         puts "Here are the available Ebooks:"
-        puts @ebooks
+        @ebooks
         puts "Would you like to look at the collection of all 7 instead Y/N?"
       when "y"
         puts "Here is the collection:"
+        @ebc
       when "n"
         puts "Here are the available Ebooks:"
+        @ebooks
         #want to add an option that allow the client to also choose the whole collection of HP instead of just one book
       when "2"
         puts "Here are the available Audiobooks:"
