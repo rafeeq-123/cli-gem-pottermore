@@ -2,7 +2,7 @@ require 'open-uri'
 require 'pry' #having a had time making binding.pry work.
 require 'nokogiri'
 
-class Scraper#::CLI
+class Scraper #::CLI
 
   attr_accessor :url
 

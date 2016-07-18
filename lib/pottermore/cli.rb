@@ -4,17 +4,23 @@ class Pottermore::CLI
   def call
     puts "Welcome to Pottermore!"
     start_menu
-    @ebooks = Scraper::CLI.ebooks
-    @audiobooks = Scraper::CLI.audiobooks
+    @ebooks = ebooks
+    @audiobooks = audiobooks
   end
 
   def start_menu
     puts " What would you like to do? Press 1 to look at Ebooks, press 2 to look at Audiobook, press 3 to look at the lastest news and press 4 to see upcoming events..."
     input = nil
     while input != "exit"
-      input = gets.strip
+      input = gets.strip.downcase
       case input
       when "1"
+        puts "Here are the available Ebooks:"
+        puts @ebooks
+        puts "Would you like to look at the collection of all 7 instead Y/N?"
+      when "y"
+        puts "Here is the collection:"
+      when "n"
         puts "Here are the available Ebooks:"
         #want to add an option that allow the client to also choose the whole collection of HP instead of just one book
       when "2"
