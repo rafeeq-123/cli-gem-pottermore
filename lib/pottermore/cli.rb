@@ -16,6 +16,7 @@ class Pottermore::CLI
       case input
       when "1"
         puts "Here are the available Ebooks:"
+        #want to add an option that allow the client to also choose the whole collection of HP instead of just one book
       when "2"
         puts "Here are the available Audiobooks:"
       when "3"
@@ -23,7 +24,7 @@ class Pottermore::CLI
       when "4"
         puts "Here are the upcoming events in the world of Harry Potter!"
       else
-        puts "I open at the close..." #I need to think of something to put there
+        puts "I open at the close...1-4, please!" #I need to think of something to put there
       end
     end
   end
