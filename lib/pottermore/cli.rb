@@ -19,6 +19,7 @@ class Pottermore::CLI
 
 
   def start_menu
+
     puts " What would you like to do? Press 1 to look at Ebooks, press 2 to look at Audiobook, press 3 to look at the lastest news and press 4 to see upcoming events..."
     input = nil
     while input != "exit"
@@ -30,7 +31,7 @@ class Pottermore::CLI
         puts "Here is the collection:"
         puts "#{book_collection}:"
       when "n"
-        puts "Here are the available Ebooks:"
+        puts "Here are the available books:"
         puts "*************************************************************"
         puts "Book one:" "#{book_one}"
         puts "Book two:" "#{book_two}"
@@ -39,7 +40,7 @@ class Pottermore::CLI
         puts "Book five:" "#{book_five}"
         puts "Book six:" "#{book_six}"
         puts "Book seven:" "#{book_seven}"
-        @ebooks #maybe I want to list the books 1-7?
+        #maybe I want to list the books 1-7?
         #want to add an option that allow the client to also choose the whole collection of HP instead of just one book
       when "2"
         puts "Would you like to look at the collection of all 7 instead Y/N?"
@@ -47,7 +48,7 @@ class Pottermore::CLI
         puts "Here is the collection:"
         puts "#{audiobook_collection}:"
       when "n"
-        puts "Here are the available Audiobooks:"
+        puts "Here are the available books:"
         puts "*************************************************************"
         puts "Book one:" "#{audiobook_one}"
         puts "Book two:" "#{audiobook_two}"
