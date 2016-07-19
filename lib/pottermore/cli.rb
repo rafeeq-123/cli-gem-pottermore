@@ -27,9 +27,6 @@ class Pottermore::CLI
     # binding.pry
 
         puts "#{@all_books.book_collection}:"
-        puts "Would you also like to see the price? Press 9"
-      when "9"
-        puts "Here is the collection price"
       when "n"
         puts "Here are the available books:"
         puts "*************************************************************"
@@ -41,7 +38,7 @@ class Pottermore::CLI
         puts "Book six:" "#{@all_books.books[6]}"
         puts "Book seven:" "#{@all_books.books[7]}"
         puts "Would you like to see the prices? Press 8"
-     #when "8"
+     # when "8"
        # puts "#{price_list}"
         #maybe I want to list the books 1-7?
         #want to add an option that allow the client to also choose the whole collection of HP instead of just one book
