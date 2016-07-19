@@ -1,4 +1,4 @@
-require 'spec_helper'
+xrequire 'spec_helper'
 
 describe Pottermore do
   it 'has a version number' do

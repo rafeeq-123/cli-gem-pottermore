@@ -1,3 +1,5 @@
+module Pottermore
+end
 require 'open-uri'
 require 'pry' #having a had time making binding.pry work.
 require 'nokogiri'

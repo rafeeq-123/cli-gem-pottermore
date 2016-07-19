@@ -4,37 +4,43 @@ require 'nokogiri'
 
 class Pottermore::Scraper
 
-  attr_accessor
 
   def initalize
-    @ebooks = ebooks
-    @audiobooks = audiobooks
-    @news = news
+    # @audiobooks = audiobooks
+    # @news = news
  #   @ebc = ebc #ebook collection
   #  @abc = abc #audiobook collection
    # @@list = []
   end
 
-  def self.ebooks
-   doc = Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/ebooks/us-english"))
-   book_one = doc.css("div.product-summary__title")[1].text
-   book_two = doc.css("div.product-summary__title")[2].text
-   book_three = doc.css("div.product-summary__title")[3].text
-   book_four = doc.css("div.product-summary__title")[4].text
-   book_five = doc.css("div.product-summary__title")[5].text
-   book_six = doc.css("div.product-summary__title")[6].text
-   book_seven = doc.css("div.product-summary__title")[7].text
-     doc.css("div.product-summary__title").text.each_with_index do |index, book|
-       book
-
+  def ebooks
+    Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/ebooks/us-english"))
+   # book_two = doc.css("div.product-summary__title")[2].text
+   # book_three = doc.css("div.product-summary__title")[3].text
+   # book_four = doc.css("div.product-summary__title")[4].text
+   # book_five = doc.css("div.product-summary__title")[5].text
+   # book_six = doc.css("div.product-summary__title")[6].text
+   # book_seven = doc.css("div.product-summary__title")[7].text
+   #   #doc.css("div.product-summary__title").text.each_with_index do |index, book|
+     #  book
 
    #should have used iteration
-   book_collection = doc.css("div.product-summary__title")[0].text
    # I also want to add price
   #
-    binding.pry
-   end
+  # end
   end
+
+  def book_collection
+    ebooks.css("div.product-summary__title")[0].text
+  end
+
+  def books
+    ebooks.css("div.product-summary__title").each do |ebook|
+      #binding.pry
+      ebook.text
+    end
+  end
+
 
   def self.audiobooks
    doc = Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/audio-books/us-english"))

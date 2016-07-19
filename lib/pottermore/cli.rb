@@ -5,16 +5,14 @@ require 'nokogiri'
 class Pottermore::CLI
 
   def call
-    Pottermore::Scraper
+    @all_books = Pottermore::Scraper.new
     puts "Welcome to Pottermore!"
     start_menu
-    ebooks
-    audiobooks
   end
 
-  def book_list
-  @ebooks = Pottermore::Scraper.ebooks
-  end
+  # def book_list
+  # @ebooks = Pottermore::Scraper.ebooks
+  # end
 
   def start_menu
     puts " What would you like to do? Press 1 to look at Ebooks, press 2 to look at Audiobook, press 3 to look at the lastest news and press 4 to see upcoming events..."
@@ -26,19 +24,24 @@ class Pottermore::CLI
         puts "Would you like to look at the collection of all 7 instead Y/N?"
       when "y"
         puts "Here is the collection:"
-        puts "#{book_collection}:"
+    # binding.pry
+
+        puts "#{@all_books.book_collection}:"
+        puts "Would you also like to see the price? Press 9"
+      when "9"
+        puts "Here is the collection price"
       when "n"
         puts "Here are the available books:"
         puts "*************************************************************"
-        puts "Book one:" "#{book_one}"
-        puts "Book two:" "#{book_two}"
-        puts "Book three:" "#{book_three}"
-        puts "Book four:" "#{book_four}"
-        puts "Book five:" "#{book_five}"
-        puts "Book six:" "#{book_six}"
-        puts "Book seven:" "#{book_seven}"
+        puts "Book one:" "#{@all_books.books[1]}"
+        puts "Book two:" "#{@all_books.books[2]}"
+        puts "Book three:" "#{@all_books.books[3]}"
+        puts "Book four:" "#{@all_books.books[4]}"
+        puts "Book five:" "#{@all_books.books[5]}"
+        puts "Book six:" "#{@all_books.books[6]}"
+        puts "Book seven:" "#{@all_books.books[7]}"
         puts "Would you like to see the prices? Press 8"
-     # when "8"
+     #when "8"
        # puts "#{price_list}"
         #maybe I want to list the books 1-7?
         #want to add an option that allow the client to also choose the whole collection of HP instead of just one book
