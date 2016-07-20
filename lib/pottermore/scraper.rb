@@ -6,11 +6,7 @@ class Pottermore::Scraper
 
 
   def initalize
-    # @audiobooks = audiobooks
-    # @news = news
- #   @ebc = ebc #ebook collection
-  #  @abc = abc #audiobook collection
-   # @@list = []
+   @all_books = @all_books
   end
 
   def ebooks
@@ -21,7 +17,7 @@ class Pottermore::Scraper
    # book_five = doc.css("div.product-summary__title")[5].text
    # book_six = doc.css("div.product-summary__title")[6].text
    # book_seven = doc.css("div.product-summary__title")[7].text
-   #   #doc.css("div.product-summary__title").text.each_with_index do |index, book|
+   #   #doc.css("div.product-summary__title").each_with_index do |index, book|
      #  book
 
    #should have used iteration
@@ -30,7 +26,7 @@ class Pottermore::Scraper
   # end
   end
 
-  def book_collection
+  def ebook_collection
     ebooks.css("div.product-summary__title")[0].text
   end
 
@@ -54,17 +50,30 @@ class Pottermore::Scraper
 
   # audiobook_collection = doc.css("div.product-summary__title")[0].text
    # binding.pry
-   end
+  end
 
-   def audiobook_collection
+  def audiobook_collection
     audiobooks.css("div.product-summary__title")[0].text
-   end
+  end
 
    def audiobooks_all
     audiobooks.css("div.product-summary__title").collect do |audiobook|
       audiobook.text
     end
-   end
+  end
+
+  def ebook_price
+    ebooks.css("span.product-summary__price").collect do |price|
+      #binding.pry
+      price.text
+    end
+  end
+
+  def audiobook_price
+    audiobooks.css("span.product-summary__price").collect do |price|
+
+  end
+
 
 
   def self.news
