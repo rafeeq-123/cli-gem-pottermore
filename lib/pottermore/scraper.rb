@@ -4,7 +4,6 @@ require 'nokogiri'
 
 class Pottermore::Scraper
 
-
   def initalize
    @all_books = @all_books
   end
@@ -18,11 +17,9 @@ class Pottermore::Scraper
    # book_six = doc.css("div.product-summary__title")[6].text
    # book_seven = doc.css("div.product-summary__title")[7].text
    #   #doc.css("div.product-summary__title").each_with_index do |index, book|
-     #  book
 
-   #should have used iteration
    # I also want to add price
-  #
+
   # end
   end
 
@@ -36,7 +33,6 @@ class Pottermore::Scraper
     end
   end
 
-
   def audiobooks
    Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/audio-books/us-english"))
     # audiobook_one = doc.css("div.product-summary__title")[1].text
@@ -46,10 +42,12 @@ class Pottermore::Scraper
     # audiobook_five = doc.css("div.product-summary__title")[5].text
     # audiobook_six = doc.css("div.product-summary__title")[6].text
     # audiobook_seven = doc.css("div.product-summary__title")[7].text
-
-
   # audiobook_collection = doc.css("div.product-summary__title")[0].text
    # binding.pry
+  end
+
+  def enhanced_version
+     Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/enhanced-editions"))
   end
 
   def audiobook_collection
@@ -71,13 +69,38 @@ class Pottermore::Scraper
 
   def audiobook_price
     audiobooks.css("span.product-summary__price").collect do |price|
-
+      #binding.pry
+    price.text
+    end
   end
 
-
-
-  def self.news
-
+  def enhanced_all
+    enhanced_version.css("div.product-summary__title").collect do |ev|
+      ev.text
+    end
   end
+
+  def ev_price
+     enhanced_version.css("span.product-summary__price").collect do |price|
+      price.text
+    end
+  end
+
+  def coming_soon
+       Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/coming-soon"))
+  end
+
+  def coming_soon_all
+    coming_soon.css("div.product-summary__title").collect do |cs|
+      cs.text
+    end
+  end
+
 end
-#
+
+
+
+
+
+
+
