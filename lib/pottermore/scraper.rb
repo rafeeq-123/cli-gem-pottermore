@@ -95,7 +95,6 @@ class Pottermore::Scraper
       cs.text
     end
   end
-
 end
 
 
