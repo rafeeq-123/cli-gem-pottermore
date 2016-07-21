@@ -41,7 +41,7 @@ class Pottermore::CLI
         puts "Ebook seven:" "#{@all_books.books[7]} Price:"  "#{@all_books.ebook_price[8]}"
         puts "Other ebook: by J.K Rowling:" "#{@all_books.books[8]} Price:"  "#{@all_books.ebook_price[9]}"
         puts "Other ebook: #{@all_books.books[9]} Price:"    "#{@all_books.ebook_price[10]}"
-        #maybe I want to list the books 1-7?
+        puts "Would you like to go back to the menu? press 10"
         #want to add an option that allow the client to also choose the whole collection of HP instead of just one book
       when "2"
         puts "Would you like to look at the Audiobook collection of all 7 instead 0 for yes and 6 for no?"
@@ -49,7 +49,7 @@ class Pottermore::CLI
         puts "Here is the collection:"
         puts "#{@all_books.audiobook_collection}:" " Original price: #{@all_books.audiobook_price[0]} Sale price:" "#{@all_books.audiobook_price[1]}"
       when "6"
-        puts "Here are the available books:"
+        puts "Here are the available Audiobooks:"
         puts "*************************************************************"
         puts "Audiobook one:" "#{@all_books.audiobooks_all[1]} Price:"   "#{@all_books.audiobook_price[2]}"
         puts "Audiobook two:" "#{@all_books.audiobooks_all[2]} Price:"   "#{@all_books.audiobook_price[3]}"
@@ -58,7 +58,8 @@ class Pottermore::CLI
         puts "Audiobook five:" "#{@all_books.audiobooks_all[5]} Price:"   "#{@all_books.audiobook_price[6]}"
         puts "Audiobook six:" "#{@all_books.audiobooks_all[6]} Price:"     "#{@all_books.audiobook_price[7]}"
         puts "Audiobook seven:" "#{@all_books.audiobooks_all[7]} Price:"   "#{@all_books.audiobook_price[8]}"
-        #puts "Other audibooks by J.K Rowling:" "#{@all_books.audiobooks_all[8]}" "#{@all_books.audiobook_price[9]}" "and" "#{@all_books.audiobooks_all[9]}" "#{@all_books.audiobook_price[10]}"
+        puts "Would you like to go back to the menu? press 10"
+      #  puts "Would you like to look at the Ebook collection of all 7 instead press 7 for yes and 9 for no?" #puts "Other audibooks by J.K Rowling:" "#{@all_books.audiobooks_all[8]}" "#{@all_books.audiobook_price[9]}" "and" "#{@all_books.audiobooks_all[9]}" "#{@all_books.audiobook_price[10]}"
       when "3"
         puts "Here are the Enhanced Versions:"
         puts "*************************************************************"
@@ -69,12 +70,15 @@ class Pottermore::CLI
         puts "Enhanced Version five:" "#{@all_books.enhanced_all[4]} Price:"   "#{@all_books.ev_price[4]}"
         puts "Enhanced Version six:" "#{@all_books.enhanced_all[5]} Price:"    "#{@all_books.ev_price[5]}"
         puts "Enhanced Version seven:" "#{@all_books.enhanced_all[6]} Price:"   "#{@all_books.ev_price[6]}"
-
+        puts "Would you like to go back to the menu? press 10"
       when "4"
         puts "Here are the coming soon in the world of Harry Potter!"
         puts "*************************************************************"
         puts "Coming soon: #{@all_books.coming_soon_all[0]}" "No price yet"
         puts "Coming soon: #{@all_books.coming_soon_all[1]}  No price yet"
+        puts "Would you like to go back to the menu? press 10"
+      when "10"
+        puts " What would you like to do? Press 1 to look at Ebooks, press 2 to look at Audiobook, press 3 to look at the Enhanced Version and press 4 to see upcoming books!!"
       when "exit"
         puts "Goodbye and come see us again!!" #I need to think of something to put there
       end
