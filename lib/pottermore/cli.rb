@@ -32,7 +32,6 @@ class Pottermore::CLI
         puts "Here are the available books:"
         puts "*************************************************************"
         puts "Ebook one:" "#{@all_books.books[1]} Price:"    "#{@all_books.ebook_price[2]}" # this is different because the first element is the sale price
-        # binding.pry
         puts "Ebook two:" "#{@all_books.books[2]} Price:"    "#{@all_books.ebook_price[3]}"
         puts "Ebook three:" "#{@all_books.books[3]} Price:"  "#{@all_books.ebook_price[4]}"
         puts "Ebook four:" "#{@all_books.books[4]} Price:"   "#{@all_books.ebook_price[5]}"
@@ -74,11 +73,11 @@ class Pottermore::CLI
       when "4"
         puts "Here are the coming soon in the world of Harry Potter!"
         puts "*************************************************************"
-        puts "Coming soon: #{@all_books.coming_soon_all[0]}" "No price yet"
+        puts "Coming soon: #{@all_books.coming_soon_all[0]}" "(No price yet)"
         puts "Coming soon: #{@all_books.coming_soon_all[1]}  No price yet"
         puts "Would you like to go back to the menu? press 10"
       when "10"
-        puts " What would you like to do? Press 1 to look at Ebooks, press 2 to look at Audiobook, press 3 to look at the Enhanced Version and press 4 to see upcoming books!!"
+        puts "What would you like to do? Press 1 to look at Ebooks, press 2 to look at Audiobook, press 3 to look at the Enhanced Version and press 4 to see upcoming books!!"
       when "exit"
         puts "Goodbye and come see us again!!" #I need to think of something to put there
       end

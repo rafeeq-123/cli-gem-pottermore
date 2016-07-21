@@ -1,5 +1,5 @@
 require 'open-uri'
-require 'pry' #having a had time making binding.pry work.
+require 'pry'
 require 'nokogiri'
 
 class Pottermore::Scraper
@@ -43,7 +43,6 @@ class Pottermore::Scraper
     # audiobook_six = doc.css("div.product-summary__title")[6].text
     # audiobook_seven = doc.css("div.product-summary__title")[7].text
   # audiobook_collection = doc.css("div.product-summary__title")[0].text
-   # binding.pry
   end
 
   def enhanced_version
@@ -69,7 +68,6 @@ class Pottermore::Scraper
 
   def audiobook_price
     audiobooks.css("span.product-summary__price").collect do |price|
-      #binding.pry
     price.text
     end
   end
