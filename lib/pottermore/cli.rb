@@ -27,7 +27,7 @@ class Pottermore::CLI
         puts "Here is the collection:"
 
 
-        puts "#{@all_books.ebook_collection}:" " Original price: #{@all_books.ebook_price[0]} sale price:" "#{@all_books.ebook_price[1]}"
+        puts "#{@all_books.ebook_collection}:" " Original price: #{@all_books.ebook_price[0]} Sale price:" "#{@all_books.ebook_price[1]}"
       when "9"
         puts "Here are the available books:"
         puts "*************************************************************"
@@ -39,14 +39,14 @@ class Pottermore::CLI
         puts "Ebook five:" "#{@all_books.books[5]}"  "#{@all_books.ebook_price[6]}"
         puts "Ebook six:" "#{@all_books.books[6]}"  "#{@all_books.ebook_price[7]}"
         puts "Ebook seven:" "#{@all_books.books[7]}"  "#{@all_books.ebook_price[8]}"
-        puts "Other ebooks by J.K Rowling:" "#{@all_books.books[9]}" "#{@all_books.ebook_price[9]}" "and" "#{@all_books.books[10]}" "#{@all_books.ebook_price[10]}"
+        puts "Other ebooks by J.K Rowling:" "#{@all_books.books[9]}" "#{@all_books.ebook_price[9]}"  "#{@all_books.books[10]}" "#{@all_books.ebook_price[10]}"
         #maybe I want to list the books 1-7?
         #want to add an option that allow the client to also choose the whole collection of HP instead of just one book
       when "2"
         puts "Would you like to look at the Audiobook collection of all 7 instead 0 for yes and 6 for no?"
       when "0" # this is reverting back to the about y/n, need to fix that
         puts "Here is the collection:"
-        puts "#{@all_books.audiobook_collection}:" " Original price: #{@all_books.audiobook_price[0]} sale price:" "#{@all_books.audiobook_price[1]}"
+        puts "#{@all_books.audiobook_collection}:" " Original price: #{@all_books.audiobook_price[0]} Sale price:" "#{@all_books.audiobook_price[1]}"
       when "6"
         puts "Here are the available books:"
         puts "*************************************************************"
