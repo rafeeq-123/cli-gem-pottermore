@@ -6,14 +6,9 @@ class Pottermore::CLI
 
   def call
     @all_books = Pottermore::Scraper.new
-    #@all_price = Pottermore::Scraper.new
     puts "Welcome to Shop Pottermore!"
     start_menu
   end
-
-  # def book_list
-  # @ebooks = Pottermore::Scraper.ebooks
-  # end
 
   def start_menu
     puts " What would you like to do? Press 1 to look at Ebooks, press 2 to look at Audiobook, press 3 to look at the Enhanced Version and press 4 to see upcoming books!!"
@@ -25,26 +20,15 @@ class Pottermore::CLI
         puts "Would you like to look at the Ebook collection of all 7 instead press 7 for yes and 9 for no?"
       when "7"
         puts "Here is the collection:"
-
-
         puts "#{@all_books.ebook_collection}:" " Original price: #{@all_books.ebook_price[0]} Sale price:" "#{@all_books.ebook_price[1]}"
       when "9"
         puts "Here are the available books:"
         puts "*************************************************************"
-        puts "Ebook one:" "#{@all_books.books[1]} Price:"    "#{@all_books.ebook_price[2]}" # this is different because the first element is the sale price
-        puts "Ebook two:" "#{@all_books.books[2]} Price:"    "#{@all_books.ebook_price[3]}"
-        puts "Ebook three:" "#{@all_books.books[3]} Price:"  "#{@all_books.ebook_price[4]}"
-        puts "Ebook four:" "#{@all_books.books[4]} Price:"   "#{@all_books.ebook_price[5]}"
-        puts "Ebook five:" "#{@all_books.books[5]} Price:"   "#{@all_books.ebook_price[6]}"
-        puts "Ebook six:" "#{@all_books.books[6]} Price:"    "#{@all_books.ebook_price[7]}"
-        puts "Ebook seven:" "#{@all_books.books[7]} Price:"  "#{@all_books.ebook_price[8]}"
-        puts "Other ebook: by J.K Rowling:" "#{@all_books.books[8]} Price:"  "#{@all_books.ebook_price[9]}"
-        puts "Other ebook: #{@all_books.books[9]} Price:"    "#{@all_books.ebook_price[10]}"
-        puts "Would you like to go back to the menu? press 10"
-        #want to add an option that allow the client to also choose the whole collection of HP instead of just one book
+        ebook_display
+        break
       when "2"
         puts "Would you like to look at the Audiobook collection of all 7 instead 0 for yes and 6 for no?"
-      when "0" # this is reverting back to the about y/n, need to fix that
+      when "0"
         puts "Here is the collection:"
         puts "#{@all_books.audiobook_collection}:" " Original price: #{@all_books.audiobook_price[0]} Sale price:" "#{@all_books.audiobook_price[1]}"
       when "6"
@@ -58,7 +42,6 @@ class Pottermore::CLI
         puts "Audiobook six:" "#{@all_books.audiobooks_all[6]} Price:"     "#{@all_books.audiobook_price[7]}"
         puts "Audiobook seven:" "#{@all_books.audiobooks_all[7]} Price:"   "#{@all_books.audiobook_price[8]}"
         puts "Would you like to go back to the menu? press 10"
-      #  puts "Would you like to look at the Ebook collection of all 7 instead press 7 for yes and 9 for no?" #puts "Other audibooks by J.K Rowling:" "#{@all_books.audiobooks_all[8]}" "#{@all_books.audiobook_price[9]}" "and" "#{@all_books.audiobooks_all[9]}" "#{@all_books.audiobook_price[10]}"
       when "3"
         puts "Here are the Enhanced Versions:"
         puts "*************************************************************"
@@ -81,6 +64,20 @@ class Pottermore::CLI
       when "exit"
         puts "Goodbye and come see us again!!" #I need to think of something to put there
       end
+
+  def ebook_display
+   @all_books.books.each.with_index do |ecollect, index|
+     puts "Ebook #{index+1}: #{ecollect}"
+    end
+  end
+
+  def audiobook_display
+    @all_books.audiobooks_all.each.with_index do |abook, index|
+
+
+
+
+
     end
   end
 end
