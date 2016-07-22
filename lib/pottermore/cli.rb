@@ -20,13 +20,12 @@ class Pottermore::CLI
         puts "Would you like to look at the Ebook collection of all 7 instead press 7 for yes and 9 for no?"
       when "7"
         puts "Here is the collection:"
-        # binding.pry
         puts "#{@all_books.ebook_collection}:" " Original price: #{@all_books.ebook_price[0]} Sale price:" "#{@all_books.ebook_price[1]}"
         puts "Would you like to go back to the menu? press 10"
       when "9"
         puts "Here are the available books:"
         puts "*************************************************************"
-        ebook_display #+ price_displayeb
+        ebook_display
         puts "Would you like to go back to the menu? press 10"
       when "2"
         puts "Would you like to look at the Audiobook collection of all 7 instead 0 for yes and 6 for no?"
@@ -63,7 +62,6 @@ class Pottermore::CLI
       puts "Ebook #{index+1} #{book_title} price: #{@all_books.ebook_price[index+2]}"
     end
   end
-
 
   def audiobook_display
     only_books = @all_books.audiobooks_all

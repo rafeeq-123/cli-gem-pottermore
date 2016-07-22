@@ -23,7 +23,7 @@ class Pottermore::Scraper
   end
 
   def audiobooks
-   Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/audio-books/us-english"))
+    Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/audio-books/us-english"))
   end
 
   def enhanced_version
@@ -42,7 +42,6 @@ class Pottermore::Scraper
 
   def ebook_price
     ebooks.css("span.product-summary__price").collect do |price|
-      #binding.pry
       price.text
     end
   end
@@ -66,7 +65,7 @@ class Pottermore::Scraper
   end
 
   def coming_soon
-       Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/coming-soon"))
+    Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/coming-soon"))
   end
 
   def coming_soon_all
