@@ -74,14 +74,10 @@ class Pottermore::CLI
   end
 
   def enhanced_display
-   # only_books = @all_books.enhanced_all
-   # only_books.shift
     @all_books.enhanced_all.each_with_index do |book_title, index|
       puts "Enhanced Version #{index+1} #{book_title} price: #{@all_books.ev_price[index+0]}"
     end
+   end
   end
-
-
-    end
-  end
+ end
 end
