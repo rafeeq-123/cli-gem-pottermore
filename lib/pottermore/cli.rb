@@ -21,37 +21,27 @@ class Pottermore::CLI
       when "7"
         puts "Here is the collection:"
         puts "#{@all_books.ebook_collection}:" " Original price: #{@all_books.ebook_price[0]} Sale price:" "#{@all_books.ebook_price[1]}"
+        puts "Would you like to go back to the menu? press 10"
       when "9"
         puts "Here are the available books:"
         puts "*************************************************************"
         ebook_display
-        break
+        puts "Would you like to go back to the menu? press 10"
       when "2"
         puts "Would you like to look at the Audiobook collection of all 7 instead 0 for yes and 6 for no?"
       when "0"
         puts "Here is the collection:"
         puts "#{@all_books.audiobook_collection}:" " Original price: #{@all_books.audiobook_price[0]} Sale price:" "#{@all_books.audiobook_price[1]}"
+        puts "Would you like to go back to the menu? press 10"
       when "6"
         puts "Here are the available Audiobooks:"
         puts "*************************************************************"
-        puts "Audiobook one:" "#{@all_books.audiobooks_all[1]} Price:"   "#{@all_books.audiobook_price[2]}"
-        puts "Audiobook two:" "#{@all_books.audiobooks_all[2]} Price:"   "#{@all_books.audiobook_price[3]}"
-        puts "Audiobook three:" "#{@all_books.audiobooks_all[3]} Price:"  "#{@all_books.audiobook_price[4]}"
-        puts "Audiobook four:" "#{@all_books.audiobooks_all[4]} Price:"   "#{@all_books.audiobook_price[5]}"
-        puts "Audiobook five:" "#{@all_books.audiobooks_all[5]} Price:"   "#{@all_books.audiobook_price[6]}"
-        puts "Audiobook six:" "#{@all_books.audiobooks_all[6]} Price:"     "#{@all_books.audiobook_price[7]}"
-        puts "Audiobook seven:" "#{@all_books.audiobooks_all[7]} Price:"   "#{@all_books.audiobook_price[8]}"
+        audiobook_display
         puts "Would you like to go back to the menu? press 10"
       when "3"
         puts "Here are the Enhanced Versions:"
         puts "*************************************************************"
-        puts "Enhanced Version one:" "#{@all_books.enhanced_all[0]} Price:"   "#{@all_books.ev_price[0]}"
-        puts "Enhanced Version two:" "#{@all_books.enhanced_all[1]} Price:"   "#{@all_books.ev_price[1]}"
-        puts "Enhanced Version three:" "#{@all_books.enhanced_all[2]} Price:"  "#{@all_books.ev_price[2]}"
-        puts "Enhanced Version four:" "#{@all_books.enhanced_all[3]} Price:"   "#{@all_books.ev_price[3]}"
-        puts "Enhanced Version five:" "#{@all_books.enhanced_all[4]} Price:"   "#{@all_books.ev_price[4]}"
-        puts "Enhanced Version six:" "#{@all_books.enhanced_all[5]} Price:"    "#{@all_books.ev_price[5]}"
-        puts "Enhanced Version seven:" "#{@all_books.enhanced_all[6]} Price:"   "#{@all_books.ev_price[6]}"
+        enhanced_display
         puts "Would you like to go back to the menu? press 10"
       when "4"
         puts "Here are the coming soon in the world of Harry Potter!"
@@ -67,14 +57,24 @@ class Pottermore::CLI
 
   def ebook_display
    @all_books.books.each.with_index do |ecollect, index|
+   # @all_books.ebook_price
      puts "Ebook #{index+1}: #{ecollect}"
     end
   end
 
   def audiobook_display
     @all_books.audiobooks_all.each.with_index do |abook, index|
+     # @all_books.audiobook_price
+      puts "Audiobook #{index+1}: #{abook}"
+    end
+  end
 
-
+  def enhanced_display
+    @all_books.enhanced_all.each.with_index do |hd, index|
+    #  @all_books.ev_price
+      puts "Enhanced Version #{index+1}: #{hd}"
+    end
+  end
 
 
 
