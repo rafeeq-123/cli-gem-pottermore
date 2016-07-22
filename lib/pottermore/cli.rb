@@ -1,5 +1,5 @@
 require 'pry'
-require 'open-uri' #having a had time making binding.pry work.
+require 'open-uri'
 require 'nokogiri'
 
 class Pottermore::CLI
@@ -20,12 +20,13 @@ class Pottermore::CLI
         puts "Would you like to look at the Ebook collection of all 7 instead press 7 for yes and 9 for no?"
       when "7"
         puts "Here is the collection:"
+        # binding.pry
         puts "#{@all_books.ebook_collection}:" " Original price: #{@all_books.ebook_price[0]} Sale price:" "#{@all_books.ebook_price[1]}"
         puts "Would you like to go back to the menu? press 10"
       when "9"
         puts "Here are the available books:"
         puts "*************************************************************"
-        ebook_display
+        ebook_display #+ price_displayeb
         puts "Would you like to go back to the menu? press 10"
       when "2"
         puts "Would you like to look at the Audiobook collection of all 7 instead 0 for yes and 6 for no?"
@@ -52,30 +53,33 @@ class Pottermore::CLI
       when "10"
         puts "What would you like to do? Press 1 to look at Ebooks, press 2 to look at Audiobook, press 3 to look at the Enhanced Version and press 4 to see upcoming books!!"
       when "exit"
-        puts "Goodbye and come see us again!!" #I need to think of something to put there
+        puts "Goodbye and come see us again!!"
       end
 
   def ebook_display
-   @all_books.books.each.with_index do |ecollect, index|
-   # @all_books.ebook_price
-     puts "Ebook #{index+1}: #{ecollect}"
+    only_books = @all_books.books
+    only_books.shift
+    only_books.each_with_index do |book_title, index|
+      puts "Ebook #{index+1} #{book_title} price: #{@all_books.ebook_price[index+2]}"
     end
   end
 
+
   def audiobook_display
-    @all_books.audiobooks_all.each.with_index do |abook, index|
-     # @all_books.audiobook_price
-      puts "Audiobook #{index+1}: #{abook}"
+    only_books = @all_books.audiobooks_all
+    only_books.shift
+    only_books.each_with_index do |book_title, index|
+      puts "Audiobook #{index+1} #{book_title} price #{@all_books.audiobook_price[index+2]}"
     end
   end
 
   def enhanced_display
-    @all_books.enhanced_all.each.with_index do |hd, index|
-    #  @all_books.ev_price
-      puts "Enhanced Version #{index+1}: #{hd}"
+    only_books = @all_books.enhanced_all
+    only_books.shift
+    only_books.each_with_index do |book_title, index|
+      puts "Enhanced Version #{index+1} #{book_title} price #{@all_books.ev_price[index+2]}"
     end
   end
-
 
 
     end

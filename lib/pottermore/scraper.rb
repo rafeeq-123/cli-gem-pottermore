@@ -27,7 +27,7 @@ class Pottermore::Scraper
   end
 
   def enhanced_version
-     Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/enhanced-editions"))
+    Nokogiri::HTML(open("https://usd.shop.pottermore.com/collections/enhanced-editions"))
   end
 
   def audiobook_collection
@@ -49,7 +49,7 @@ class Pottermore::Scraper
 
   def audiobook_price
     audiobooks.css("span.product-summary__price").collect do |price|
-    price.text
+      price.text
     end
   end
 
