@@ -69,15 +69,15 @@ class Pottermore::CLI
     only_books = @all_books.audiobooks_all
     only_books.shift
     only_books.each_with_index do |book_title, index|
-      puts "Audiobook #{index+1} #{book_title} price #{@all_books.audiobook_price[index+2]}"
+      puts "Audiobook #{index+1} #{book_title} price: #{@all_books.audiobook_price[index+2]}"
     end
   end
 
   def enhanced_display
-    only_books = @all_books.enhanced_all
-    only_books.shift
-    only_books.each_with_index do |book_title, index|
-      puts "Enhanced Version #{index+1} #{book_title} price #{@all_books.ev_price[index+2]}"
+   # only_books = @all_books.enhanced_all
+   # only_books.shift
+    @all_books.enhanced_all.each_with_index do |book_title, index|
+      puts "Enhanced Version #{index+1} #{book_title} price: #{@all_books.ev_price[index+0]}"
     end
   end
 
