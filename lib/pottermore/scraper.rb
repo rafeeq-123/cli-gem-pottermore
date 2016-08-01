@@ -13,7 +13,7 @@ class Pottermore::Scraper
   end
 
   def ebook_collection
-    ebooks.css("div.product-summary__title")[0].text
+    ebooks.css("div.product-summary__title")[1].text
   end
 
   def books
